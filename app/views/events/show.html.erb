@@ -1,0 +1,21 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Name:</strong>
+  <%= @event.name %>
+</p>
+
+<p>
+  <strong>Ticket cost:</strong>
+  <%= @event.ticket_cost %>
+</p>
+
+<script src="https://checkout.stripe.com/checkout.js" class="stripe-button"
+          data-key="<%= Rails.application.secrets.stripe_publishable_key %>"
+          data-description="A month's subscription"
+          data-amount="500"></script>
+
+
+
+<%= link_to 'Edit', edit_event_path(@event) %> |
+<%= link_to 'Back', events_path %>
