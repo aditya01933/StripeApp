@@ -10,11 +10,19 @@
   <%= @event.ticket_cost %>
 </p>
 
-<script src="https://checkout.stripe.com/checkout.js" class="stripe-button"
-          data-key="<%= Rails.application.secrets.stripe_publishable_key %>"
-          data-description="A month's subscription"
-          data-amount="500"></script>
 
+
+
+<form action="/tickets" method="POST">
+  <script
+    src="https://checkout.stripe.com/checkout.js" class="stripe-button"
+    data-key="<%= Rails.application.secrets.stripe_publishable_key %>"
+    data-image="/img/documentation/checkout/marketplace.png"
+    data-name="Clot"
+    data-description="ticket for event 1"
+    data-amount="2000">
+  </script>
+</form>
 
 
 <%= link_to 'Edit', edit_event_path(@event) %> |

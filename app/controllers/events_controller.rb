@@ -3,6 +3,7 @@ class EventsController < ApplicationController
   before_action :authenticate_user!
   respond_to :html
 
+
   def index
     @events = Event.all
     respond_with(@events)

@@ -1,0 +1,26 @@
+<%= form_for(@ticket) do |f| %>
+  <% if @ticket.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@ticket.errors.count, "error") %> prohibited this ticket from being saved:</h2>
+
+      <ul>
+      <% @ticket.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+ 
+  <div class="actions">
+    
+    <script
+    src="https://checkout.stripe.com/checkout.js" class="stripe-button"
+    data-key="<%= Rails.application.secrets.stripe_publishable_key %>"
+    data-image="/img/documentation/checkout/marketplace.png"
+    data-name="Clot"
+    data-description="ticket for event 1"
+    data-amount="2000">
+  </script>
+  </div>
+<% end %>
